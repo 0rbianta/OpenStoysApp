@@ -1,0 +1,109 @@
+<HomeworksScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        MDToolbar:
+            title: "Homeworks"
+            elevation: "5dp"
+        ScrollView:
+            MDList:
+                id: content_area
+                padding: "10dp"
+                spacing: "18dp"
+
+
+
+
+
+
+<HomeworkCard>:
+    padding: "10dp"
+    radius: "10dp"
+    elevation: "5dp"
+    size_hint: 1, None
+    height: "300dp"
+    orientation: "vertical"
+    on_release: self.on_homework_detail_click(self.content_id)
+
+    title: ""
+    description: ""
+    start_date: ""
+    end_date: ""
+    content_id: ""
+    MDBoxLayout:
+        spacing: "14dp"
+        orientation: "vertical"
+        MDLabel:
+            text: root.title
+        MDBoxLayout:
+            canvas:
+                Color:
+                    rgba: 0, 0, 0, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: None
+            height: "2dp"
+        MDLabel:
+            text: root.description
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            MDLabel:
+                text: "Start Date: " + root.start_date
+            MDLabel:
+                halign: "right"
+                text: "End Date: " + root.end_date
+
+
+
+<HomeworkDetails>:
+    orientation: "vertical"
+    spacing: "10dp"
+
+
+    title: ""
+    aciklama: ""
+    start_date: ""
+    end_date: ""
+    lesson_name: ""
+    odev_durum_aciklama: ""
+    homework_download_url: ""
+
+    MDLabel:
+        theme_text_color: "Custom"
+        text_color: 1, 1, 1, 1
+        text: root.title
+
+    MDLabel:
+        theme_text_color: "Custom"
+        text_color: 1, 1, 1, 1
+        text: root.aciklama
+
+    MDLabel:
+        theme_text_color: "Custom"
+        text_color: 1, 1, 1, 1
+        text: root.start_date
+
+    MDLabel:
+        theme_text_color: "Custom"
+        text_color: 1, 1, 1, 1
+        text: root.end_date
+
+    MDLabel:
+        theme_text_color: "Custom"
+        text_color: 1, 1, 1, 1
+        text: root.lesson_name
+
+    MDLabel:
+        theme_text_color: "Custom"
+        text_color: 1, 1, 1, 1
+        text: root.odev_durum_aciklama
+
+    MDRaisedButton:
+        id: download_button
+        text: "Download Document"
+        on_release: root.on_download_clicked(root.homework_download_url)
+
+    MDRaisedButton:
+        text: "Close"
+        on_release: root.close_homework_detail_click()

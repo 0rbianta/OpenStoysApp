@@ -1,0 +1,124 @@
+<HomeScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        MDToolbar:
+            title: "openStoys"
+            elevation: "5dp"
+        MDBoxLayout:
+            orientation: "vertical"
+            padding: "20dp"
+            size_hint_y: None
+            height: "180dp"
+            canvas.before:
+                Color:
+                    rgba: 45/255, 216/255, 235/255, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            MDLabel:
+                text: "Welcome back!"
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                font_size: "20dp"
+                bold: True
+            StudentCard:
+                id: student_card
+        ScrollView:
+            MDList:
+                id: content_area
+                padding: 0
+                spacing: "5dp"
+
+
+
+
+
+
+
+<StudentCard@MDCard>:
+    padding: "10dp"
+    radius: "10dp"
+    elevation: "5dp"
+    size_hint_y: None
+    height: "110dp"
+    MDBoxLayout:
+        spacing: "10dp"
+        orientation: "horizontal"
+        FloatLayout:
+            pos_hint: {"center_y": .5}
+            size_hint: None, None
+            height: "60dp"
+            width: "60dp"
+            canvas.before:
+                Color:
+                    rgba: 245/255, 242/255, 66/255, 1
+                Rectangle:
+                    pos: self.pos
+                    size: dp(60), dp(60)
+            Image:
+                pos_hint: {"center_x": .5, "center_y": .5}
+                id: profile_image
+                size_hint: None, None
+                size: "50dp", "50dp"
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "2dp"
+            MDLabel:
+                id: profile_name_surname
+                bold: True
+            MDLabel:
+                id: profile_no
+            MDLabel:
+                id: profile_class
+            MDLabel:
+                id: profile_school
+                font_size: "14dp"
+                theme_text_color: "Secondary"
+
+
+
+<ActivityCard>:
+    padding: "10dp"
+    radius: "10dp"
+    elevation: "5dp"
+    size_hint: 1, None
+    height: "300dp"
+    orientation: "vertical"
+
+    title: ""
+    description: ""
+    start_date: ""
+    end_date: ""
+    MDBoxLayout:
+        spacing: "14dp"
+        orientation: "vertical"
+        MDLabel:
+            text: root.title
+        MDBoxLayout:
+            canvas:
+                Color:
+                    rgba: 0, 0, 0, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: None
+            height: "2dp"
+        MDLabel:
+            text: root.description
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            MDLabel:
+                text: "Start Date: " + root.start_date
+            MDLabel:
+                halign: "right"
+                text: "End Date: " + root.end_date
+
+
+
+
+
+
+
+

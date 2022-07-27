@@ -1,0 +1,39 @@
+<ExamsScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        MDToolbar:
+            title: "Exams"
+            elevation: "5dp"
+        ScrollView:
+            MDList:
+                id: content_area
+                padding: "10dp"
+                spacing: "18dp"
+
+
+
+
+
+<ExamCard>:
+    padding: "10dp"
+    radius: "10dp"
+    elevation: "5dp"
+    size_hint: 1, None
+    height: "120dp"
+    orientation: "vertical"
+
+    baslik: ""
+    baslangic_tarihi: ""
+
+    MDBoxLayout:
+        spacing: "14dp"
+        orientation: "vertical"
+
+        MDLabel:
+            text: root.baslik
+        MDLabel:
+            text: "Date: " + root.baslangic_tarihi
+
+
+
+

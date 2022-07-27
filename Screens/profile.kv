@@ -1,0 +1,42 @@
+<ProfileScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        MDToolbar:
+            title: "Profile"
+            elevation: "5dp"
+        ScrollView:
+            MDList:
+                padding: "100dp"
+                MDBoxLayout:
+                    spacing: "10dp"
+                    orientation: "horizontal"
+                    FloatLayout:
+                        pos_hint: {"center_y": .5}
+                        size_hint: None, None
+                        height: "60dp"
+                        width: "60dp"
+                        canvas.before:
+                            Color:
+                                rgba: 245/255, 242/255, 66/255, 1
+                            Rectangle:
+                                pos: self.pos
+                                size: dp(60), dp(60)
+                        Image:
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            id: profile_image
+                            size_hint: None, None
+                            size: "50dp", "50dp"
+                    MDLabel:
+                        id: profile_name_surname
+                        bold: True
+                MDLabel:
+                    id: profile_info
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    theme_text_color: "Secondary"
+                MDTextButton:
+                    text: "Log out"
+                    underline: True
+                    theme_text_color: "Custom"
+                    text_color: 0/255, 162/255, 255/255, 1
+                    on_press: root.on_logout_clicked()

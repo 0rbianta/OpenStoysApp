@@ -1,0 +1,50 @@
+#:import create_signal_load_screen Helper.create_signal_load_screen
+
+MainScreen:
+    name: "main_screen"
+
+
+    MDBottomNavigation:
+        MDBottomNavigationItem:
+            text: "Home"
+            name: "home"
+            icon: "home"
+            on_enter: create_signal_load_screen("home")
+
+            HomeScreen:
+
+
+
+        MDBottomNavigationItem:
+            text: "Calendar"
+            name: "calendar"
+            icon: "calendar-blank"
+            on_enter: create_signal_load_screen("calendar")
+
+            CalendarScreen:
+
+
+        MDBottomNavigationItem:
+            text: "Homeworks"
+            name: "homeworks"
+            icon: "archive-outline"
+            on_enter: create_signal_load_screen("homeworks")
+
+            HomeworksScreen:
+
+        MDBottomNavigationItem:
+            text: "Exams"
+            name: "exams"
+            icon: "align-vertical-bottom"
+            on_enter: create_signal_load_screen("exams")
+
+            ExamsScreen:
+
+        MDBottomNavigationItem:
+            text: "Profile"
+            name: "profile"
+            icon: "account-box"
+            on_enter: create_signal_load_screen("profile")
+
+            ProfileScreen:
+

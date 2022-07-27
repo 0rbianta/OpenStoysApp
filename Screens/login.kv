@@ -1,0 +1,60 @@
+LoginScreen:
+    name: "login_screen"
+    Image:
+        source: "./Images/login_screen_background.jpg"
+        allow_stretch: True
+        keep_ratio: False
+    MDCard:
+        size_hint: None, None
+        size: dp(300), dp(350)
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: "5dp"
+        padding: dp(25)
+        spacing: dp(10)
+        orientation: "vertical"
+        radius: dp(10)
+        Image:
+            size_hint: 1, 1
+            pos_hint: {"center_x": .5}
+            source: "./Images/logo.png"
+
+
+
+        MDLabel:
+            size_hint_y: None
+            height: self.texture_size[1]
+            text: "Username"
+            color: .134, .134, .134
+            font_size: dp(13)
+
+        MDTextField:
+            id: username_textfield
+            hint_text: "Type your username"
+            icon_right: 'account'
+
+        MDLabel:
+            size_hint_y: None
+            height: self.texture_size[1]
+            text: "Password"
+            password: True
+            color: .208, .210, .210
+            font_size: dp(13)
+
+        MDTextField:
+            id: password_textfield
+            hint_text: "Type your password"
+            icon_right: 'key-variant'
+            password: True
+
+
+        MDFillRoundFlatButton:
+            padding: dp(10)
+            size_hint_x: 1
+            text: "LOGIN"
+            on_release: root.login_button_clicked(username_textfield.text, password_textfield.text)
+
+
+
+
+
+

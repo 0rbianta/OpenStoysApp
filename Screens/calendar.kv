@@ -1,0 +1,74 @@
+<CalendarScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        MDToolbar:
+            title: "Calendar"
+            elevation: "5dp"
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: "50dp"
+            padding: "2dp"
+            canvas.before:
+                Color:
+                    rgba: 45/255, 216/255, 235/255, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            MDLabel:
+                id: selected_date_info
+                theme_text_color: "Custom"
+                text_color: 128/255, 89/255, 255/255, 1
+            MDRaisedButton:
+                halign: "right"
+                pos_hint: {"center_y": .5}
+                text: "Choose Date"
+                on_release: root.on_choose_date_clicked()
+                md_bg_color: 128/255, 89/255, 255/255, 1
+        ScrollView:
+            MDList:
+                id: content_area
+                spacing: "10dp"
+                padding: 0
+
+
+
+
+
+
+<CalendarActivityCard>:
+    padding: "10dp"
+    radius: "10dp"
+    elevation: "5dp"
+    size_hint: 1, None
+    height: "300dp"
+    orientation: "vertical"
+
+    title: ""
+    description: ""
+    start_date: ""
+    end_date: ""
+    MDBoxLayout:
+        spacing: "14dp"
+        orientation: "vertical"
+        MDLabel:
+            text: root.title
+        MDBoxLayout:
+            canvas:
+                Color:
+                    rgba: 0, 0, 0, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: None
+            height: "2dp"
+        MDLabel:
+            text: root.description
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            MDLabel:
+                text: "Start Date: " + root.start_date
+            MDLabel:
+                halign: "right"
+                text: "End Date: " + root.end_date
